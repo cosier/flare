@@ -6,4 +6,7 @@ current: <pre><%= @current %></pre>
 <br/>
 keys: <pre><%= @keys.map(&:label).to_json %></pre>
 <br/>
-events: <pre><%= @events.to_json %></pre>
+events:
+<% @events.map(&:label).each do |l| %>
+    <pre><%= l %></pre>
+<% end %>

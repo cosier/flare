@@ -24,4 +24,18 @@ class Record < ApplicationRecord
   def label
     "#{zone}.#{domain}"
   end
+
+  def process!
+    log "processing"
+  end
+
+  private
+
+  def api_key
+    @api ||= key.value
+  end
+
+  def log(title)
+    Event.create!(title: "#{label} : #{title}")
+  end
 end

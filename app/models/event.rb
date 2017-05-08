@@ -12,4 +12,9 @@
 #
 
 class Event < ApplicationRecord
+  enum level: [:debug, :warning, :error, :info, :critical]
+
+  def label
+    "#{created_at}: #{title}#{description.present? ? ' :  ' + description : '' }"
+  end
 end

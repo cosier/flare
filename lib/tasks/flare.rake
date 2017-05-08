@@ -23,6 +23,12 @@ namespace :flare do
     end
   end
 
+  desc "Trigger update"
+  task update: :environment do
+    Event.create(title: "system: updating via rake task")
+    Record.all.map(&:process!)
+  end
+
   desc "Initialize domains"
   task domains: :environment do
     key = Key.where(name: "cloudflare-cosier").first
