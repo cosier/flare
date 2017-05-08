@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
     @events = Event.order(created_at: :desc).limit(20)
     @keys = Key.all
   end
+
+  def refresh_data
+    Address.current
+    Record.all.map(&:process!)
+    redirect_to '/'
+  end
 end

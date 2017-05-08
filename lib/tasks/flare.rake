@@ -25,6 +25,7 @@ namespace :flare do
 
   desc "Trigger update"
   task update: :environment do
+    Address.current
     Event.create(title: "system: updating via rake task")
     Record.all.map(&:process!)
   end

@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  title       :string           not null
-#  level       :integer          default(0)
+#  level       :integer          default("debug")
 #  description :text
 #  data        :text
 #  created_at  :datetime         not null

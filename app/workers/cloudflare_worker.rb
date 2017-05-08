@@ -5,7 +5,7 @@ class CloudflareWorker
 
   def perform(*args)
     # Do something
-    puts "cloudflare-worker doing something"
+    Address.current
     Record.all.map(&:process!)
   end
 end

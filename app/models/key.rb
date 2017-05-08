@@ -16,6 +16,9 @@ class Key < ApplicationRecord
   enum key_type: [:cloudflare]
   has_many :records, dependent: :destroy
 
+  validates_presence_of :email_address
+  validates_presence_of :value
+
   def label
     "#{name}:#{value}"
   end
