@@ -3,7 +3,7 @@
 # Table name: keys
 #
 #  id            :integer          not null, primary key
-#  key_type      :integer          default(0)
+#  key_type      :integer          default("cloudflare")
 #  name          :string           not null
 #  value         :string           not null
 #  data          :text

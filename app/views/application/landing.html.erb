@@ -1,9 +1,9 @@
-records: <pre><%= @records.to_json %></pre>
+records: <pre><%= @records.map(&:label).to_json %></pre>
 <br/>
 addresses: <pre><%= @addresses.map(&:label) %></pre>
 <br/>
 current: <pre><%= @current %></pre>
 <br/>
-keys: <pre><%= @keys.to_json %></pre>
+keys: <pre><%= @keys.map(&:label).to_json %></pre>
 <br/>
 events: <pre><%= @events.to_json %></pre>

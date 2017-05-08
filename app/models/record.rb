@@ -2,13 +2,14 @@
 #
 # Table name: records
 #
-#  id          :integer          not null, primary key
-#  domain      :string
-#  zone        :string
-#  key_id      :integer
-#  record_data :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id                :integer          not null, primary key
+#  domain            :string
+#  zone              :string
+#  key_id            :integer
+#  record_data       :text
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  last_processed_at :datetime
 #
 
 class Record < ApplicationRecord
