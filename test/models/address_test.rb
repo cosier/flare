@@ -1,19 +1,16 @@
 # == Schema Information
 #
-# Table name: keys
+# Table name: addresses
 #
 #  id         :integer          not null, primary key
-#  key_type   :integer          default(0)
-#  name       :string           not null
-#  value      :string           not null
-#  data       :text
+#  ip_address :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class KeyTest < ActiveSupport::TestCase
+class AddressTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
