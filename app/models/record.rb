@@ -18,6 +18,10 @@ class Record < ApplicationRecord
   enum status: [:enabled, :disabled, :error]
   serialize :record_data, Hash
 
+  validates_presence_of :key
+  validates_presence_of :domain
+  validates_presence_of :zone
+
   def self.install(d, z, k)
     unless where(domain: d, zone: z).first.present?
       create!(domain: d, zone: z, key: k)

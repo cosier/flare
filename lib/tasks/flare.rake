@@ -46,5 +46,4 @@ namespace :flare do
       puts "Records not installed: missing DOMAIN and ZONE config... :("
     end
   end
-
 end
