@@ -12,4 +12,15 @@
 #
 
 class Record < ApplicationRecord
+  belongs_to :key
+
+  def self.install(d, z, k)
+    unless where(domain: d, zone: z).first.present?
+      create!(domain: d, zone: z, key: k)
+    end
+  end
+
+  def label
+    "#{zone}.#{domain}"
+  end
 end
