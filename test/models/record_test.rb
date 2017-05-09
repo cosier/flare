@@ -2,15 +2,16 @@
 #
 # Table name: records
 #
-#  id                :integer          not null, primary key
-#  domain            :string
-#  zone              :string
-#  key_id            :integer
-#  record_data       :text
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#  last_processed_at :datetime
-#  status            :integer          default(0)
+#  id                   :integer          not null, primary key
+#  domain               :string
+#  zone                 :string
+#  key_id               :integer
+#  record_data          :text
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  last_processed_at    :datetime
+#  status               :integer          default("enabled")
+#  service_mode_enabled :boolean          default(FALSE)
 #
 
 require 'test_helper'

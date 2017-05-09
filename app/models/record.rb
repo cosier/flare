@@ -2,15 +2,16 @@
 #
 # Table name: records
 #
-#  id                :integer          not null, primary key
-#  domain            :string
-#  zone              :string
-#  key_id            :integer
-#  record_data       :text
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#  last_processed_at :datetime
-#  status            :integer          default(0)
+#  id                   :integer          not null, primary key
+#  domain               :string
+#  zone                 :string
+#  key_id               :integer
+#  record_data          :text
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  last_processed_at    :datetime
+#  status               :integer          default("enabled")
+#  service_mode_enabled :boolean          default(FALSE)
 #
 
 class Record < ApplicationRecord
@@ -33,14 +34,13 @@ class Record < ApplicationRecord
   end
 
   def process!
-
     if rec && rec['rec_id'].present?
       id = rec['rec_id']
       log "updating existing rec: #{id} -> #{domain} / #{label} / #{latest_ip}"
-      api.rec_edit(domain, "A", id, label, latest_ip, 300)
+      api.rec_edit(domain, "A", id, label, latest_ip, 90, nil, nil, nil, nil, nil, nil, service_mode_enabled)
     else
       log "creating new rec"
-      api.rec_new(domain, "A", label, latest_ip, 300)
+      api.rec_new(domain, "A", label, latest_ip, 90, nil, nil, nil, nil, nil, nil, nil, service_mode_enabled)
     end
 
     self.last_processed_at = DateTime.now

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508230057) do
+ActiveRecord::Schema.define(version: 20170509143016) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "ip_address", null: false
@@ -42,10 +42,11 @@ ActiveRecord::Schema.define(version: 20170508230057) do
     t.string   "zone"
     t.integer  "key_id"
     t.text     "record_data"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.datetime "last_processed_at"
-    t.integer  "status",            default: 0
+    t.integer  "status",               default: 0
+    t.boolean  "service_mode_enabled", default: false
   end
 
 end
