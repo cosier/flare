@@ -2,9 +2,12 @@
 
 cd "$(dirname "$0")"/../
 
-export PATH="~/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if [[ "$(which rbenv)" == "" ]]; then
+  export PATH="~/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 
+bundle install
 bundle exec rake flare:update
 
 
