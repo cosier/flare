@@ -7,7 +7,7 @@ if [[ "$(which rbenv)" == "" ]]; then
   eval "$(rbenv init -)"
 fi
 
-bundle install
+bundle install --quiet
 bundle exec rake flare:update
 
 
